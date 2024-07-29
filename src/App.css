@@ -1,42 +1,60 @@
+/* - Weights: 400, 500, 700 */
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Rubik','Courier New', Courier, monospace;
+}
+
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  max-width: 1440px;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+header{
+  aspect-ratio: 375/300;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url('./assets/pattern-bg-mobile.png');
+
+  h1{
+    color: var(--white);
+    padding-top: 20px;
   }
-  to {
-    transform: rotate(360deg);
+
+  div{
+    padding: 20px 0;
+
+    &>*{
+      padding: 16px;
+    }
+
+    input{
+      font-size: 18px;
+    }
   }
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  .ip__data{
+    background-color: var(--white);
+    margin: 0 40px;
+    list-style: none;
+
+    h2{
+      color: var(--DarkGray);
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    .ip__info{
+      font-size: 1.6em;
+      font-weight: 500;
+    }
   }
+
+
 }
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
