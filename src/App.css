@@ -18,14 +18,21 @@ header{
   background-repeat: no-repeat;
   background-size: contain;
   background-image: url('./assets/pattern-bg-mobile.png');
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
 
   h1{
     color: var(--white);
     padding-top: 20px;
   }
 
-  div{
-    padding: 20px 0;
+  form{
+    width: 330px;
+    margin: 20px 0;
+    border-radius: 12px;
+    overflow: hidden;
 
     &>*{
       padding: 16px;
@@ -33,13 +40,27 @@ header{
 
     input{
       font-size: 18px;
+      border: 0;
+    }
+
+    button{
+      padding: 20px;
+      background-color: var(--VeryDarkGray);
+      border: none;
     }
   }
 
   .ip__data{
     background-color: var(--white);
-    margin: 0 40px;
+    width: 330px;
+    min-height: 310px;
+    min-width: 80vw;
+    padding: 10px;
+    position: absolute;
     list-style: none;
+    bottom: -180px;
+    border-radius: 10px;
+    z-index: 100;
 
     h2{
       color: var(--DarkGray);
@@ -52,9 +73,27 @@ header{
     .ip__info{
       font-size: 1.6em;
       font-weight: 500;
+      margin-bottom: 16px;
     }
   }
+}
 
+h2{
+  color: var(--lightWhite);
+}
 
+main{
+  height: 70dvh;
+  background-color: var(--DarkGray);
+}
+
+#map{
+  height: 100%;
+  width: 100%;
+}
+
+.leaflet-container.leaflet-touch-drag.leaflet-touch-zoom{
+  height: 100%;
+  z-index: 10;
 }
 
