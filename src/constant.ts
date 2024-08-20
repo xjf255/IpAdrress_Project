@@ -10,3 +10,12 @@ export const DATA_EXAMPLE = {
   },
   isp: "SpaceX Starlink"
 }
+
+export const INFO_DATA = {
+  ip: "Ip address",
+  region: "Location",
+  timezone: "TimeZone",
+  isp: "Isp"
+}
+
+export const SPECIAL_ENTRIES = ["region", "timezone"]
