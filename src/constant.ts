@@ -1,5 +1,3 @@
-export const APIKEY = import.meta.env.VITE_API_KEY
-
 export const DATA_EXAMPLE = {
   ip: "192.212.174.101",
   location: {

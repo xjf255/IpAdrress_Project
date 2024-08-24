@@ -1,10 +1,10 @@
 /* - Weights: 400, 500, 700 */
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Rubik','Courier New', Courier, monospace;
+  font-family: 'Rubik', 'Courier New', Courier, monospace;
 }
 
 #root {
@@ -13,7 +13,8 @@
 }
 
 
-header{
+header {
+  width: 100vw;
   aspect-ratio: 375/300;
   background-repeat: no-repeat;
   background-size: contain;
@@ -23,34 +24,36 @@ header{
   align-items: center;
   position: relative;
 
-  h1{
+  h1 {
     color: var(--white);
     padding-top: 20px;
   }
 
-  form{
+  form {
     width: 330px;
     margin: 20px 0;
     border-radius: 12px;
     overflow: hidden;
 
-    &>*{
+    &>* {
       padding: 16px;
     }
 
-    input{
+    input {
+      width: 86%;
       font-size: 18px;
       border: 0;
     }
 
-    button{
+    button {
+      width: 14%;
       padding: 20px;
       background-color: var(--VeryDarkGray);
       border: none;
     }
   }
 
-  .ip__data{
+  .ip__data {
     background-color: var(--white);
     width: 330px;
     min-height: 310px;
@@ -62,15 +65,16 @@ header{
     border-radius: 10px;
     z-index: 100;
 
-    h2{
+    h2 {
       color: var(--DarkGray);
       font-size: 12px;
       letter-spacing: 1px;
       text-transform: uppercase;
       font-weight: 500;
+      /* text-align: start; */
     }
 
-    .ip__info{
+    .ip__info {
       font-size: 1.6em;
       font-weight: 500;
       margin-bottom: 16px;
@@ -78,22 +82,66 @@ header{
   }
 }
 
-h2{
+h2 {
   color: var(--lightWhite);
 }
 
-main{
+main {
   height: 70dvh;
   background-color: var(--DarkGray);
 }
 
-#map{
-  height: 100%;
-  width: 100%;
+#map {
+  height: 100dvh;
+  width: 100vw;
 }
 
-.leaflet-container.leaflet-touch-drag.leaflet-touch-zoom{
+.leaflet-container.leaflet-touch-drag.leaflet-touch-zoom {
   height: 100%;
   z-index: 10;
 }
 
+@media (500px <= width) {
+  header {
+    background-image: url('./assets/pattern-bg-desktop.png');
+    aspect-ratio: 1400/280;
+    .ip__data{
+      display: flex;
+      min-height: 160px;
+      padding-inline: 20px;
+      align-items: center;
+      justify-content: space-between;
+
+      h2{ 
+        text-align: start;
+      }
+    }
+
+    form{
+      width: 600px;
+    }
+  }
+
+  li {
+    border-left: 1px solid var(--DarkGray);
+    padding-left: 30px;
+  }
+
+  li:first-child{
+    border: none;
+    padding-left: 0;
+  }
+}
+
+
+@media (width >=1200px) {
+  header {
+    background-image: url('./assets/pattern-bg-desktop.png');
+    aspect-ratio: 1440/280;
+
+    .ip__data{
+      bottom: -80px;
+    }
+  }
+
+}
