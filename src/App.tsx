@@ -6,12 +6,12 @@ import useFetchData from './hooks/useFetchData'
 
 
 function App() {
-  const { error, data, setIp, ip, loading } = useFetchData()
+  const { error, data, loading } = useFetchData()
 
   return (
     <>
       <header>
-        <Input ip={ip} setIp={setIp} />
+        <Input />
         {loading === false && !error
           ? <ListData data={data} />
           : error ? <h2> {error} </h2> : <h2>cargando...</h2>}

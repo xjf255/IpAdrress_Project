@@ -1,12 +1,15 @@
+type signal = AbortSignal
+type ip = string
+
 interface ILocation {
-  region:string
-  timezone:string
-  lat:number
-  lng:number
+  region: string
+  timezone: string
+  lat: number
+  lng: number
 }
 
-export interface IData {
-  ip:string
-  location:ILocation
-  isp:string
+export interface IData extends Partial<ILocation>{
+  ip: string
+  location: ILocation
+  isp: string
 }

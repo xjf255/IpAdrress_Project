@@ -1,16 +1,18 @@
-import { useState, useEffect, useCallback } from "react"
-import { IData } from "../types"
+import { useState, useEffect, useCallback, useContext } from "react"
+import { IData, signal } from "../types"
 import { DATA_EXAMPLE } from "../constant"
 import { getAPI } from "../services/getAPI"
-// type Abo
+import { IpContext } from "../context/ip"
 
 export default function useFetchData() {
   const [data, setData] = useState<IData>(DATA_EXAMPLE)
-  const [ip, setIp] = useState<string>("192.212.174.101")
+  const { ip } = useContext(IpContext)
   const [loading, setLoading] = useState<boolean>(false)
   const [error, setError] = useState<string>()
 
-  const fetchData = useCallback(async (signal) => {
+
+
+  const fetchData = useCallback(async (signal: signal) => {
     try {
       setLoading(true)
       const data = await getAPI({ ip, signal })
@@ -19,7 +21,7 @@ export default function useFetchData() {
     } catch (err) {
       if (err instanceof Error) {
         if (err.name !== 'AbortError') {
-          setError(`Error fetching data:, ${err}`)
+          setError(`Error en obtencion de datos, ${err}`)
         }
       } else {
         setError("An unknown error occurred")
@@ -27,18 +29,18 @@ export default function useFetchData() {
     } finally {
       setLoading(false)
     }
-  },[ip])
+  }, [ip])
 
   useEffect(() => {
     const controller = new AbortController()
     const signal = controller.signal
-    
+
     fetchData(signal)
 
     return () => {
       controller.abort()
     }
-  }, [ip,fetchData])
+  }, [ip, fetchData])
 
-  return { error, data, setIp, ip, loading }
+  return { error, data, loading }
 }
